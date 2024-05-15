@@ -37,12 +37,16 @@ class ClientController extends Controller
             $responseFeedback = $response->json();
             $feedbacks = $responseFeedback['data'];
 
+            $response = Http::get('http://localhost:9099/api/hot-news');
+            $responseNews = $response->json();
+            $news = $responseNews['data'];
 
-            return view('customer.dashboard', compact('feedbacks','galleries','categories', 'products', 'user'));
+
+            return view('customer.dashboard', compact('news','feedbacks','galleries','categories', 'products', 'user'));
         } catch (\Exception $e) {
             // Handle the case when endpoints are not accessible
             Log::error('Failed to fetch data for dashboard: ' . $e->getMessage());
-            return view('customer.dashboard')->with('galleries', [])->with('feedbacks', [])->with('categories', [])->with('products', [])->with('user', []);
+            return view('customer.dashboard')->with('news', [])->with('galleries', [])->with('feedbacks', [])->with('categories', [])->with('products', [])->with('user', []);
         }
     }
     public function Profile(){
@@ -84,16 +88,22 @@ class ClientController extends Controller
             $responseProduct = $response->json();
             $products = $responseProduct['data'];
 
+            $response = Http::get('http://localhost:9099/api/hot-news');
+            $responseNews = $response->json();
+            $news = $responseNews['data'];
+
+
+
             if ($response->successful()) {
-                return view('customer.allproduct', compact('products', 'categories', 'user'));
+                return view('customer.allproduct', compact('products', 'categories', 'user','news'));
             } else {
                 Log::error('Failed to fetch products: ' . $response->status());
-                return view('customer.allproduct')->with('products', [])->with('categories', [])->with('user', []);
+                return view('customer.allproduct')->with('news', [])->with('products', [])->with('categories', [])->with('user', []);
             }
         } catch (\Exception $e) {
             // Handle the case when endpoints are not accessible
             Log::error('Failed to fetch data for all products: ' . $e->getMessage());
-            return view('customer.allproduct')->with('products', [])->with('categories', [])->with('user', []);
+            return view('customer.allproduct')->with('news', [])->with('products', [])->with('categories', [])->with('user', []);
         }
     }
 

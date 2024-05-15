@@ -17,7 +17,7 @@ class GalleryController extends Controller
         $response = Http::get('http://localhost:9094/api/galleries');
         if ($response->successful()) {
         $responseData = $response->json();
-        $galleries = $responseData->json()['data'];
+        $galleries = $responseData['data'];
         return view('admin.allgallery', compact('galleries'));
     }  else {
         Log::error('Failed to fetch galleries: ' . $response->status());

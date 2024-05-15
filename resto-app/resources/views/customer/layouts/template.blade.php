@@ -155,7 +155,7 @@
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Kontak</h4>
-            <p>Hubungi kontak resto yang tersedia jika anda mengalami suatu kendala </p>
+            <p> </p>
 
 
           </div>

@@ -2,7 +2,7 @@
 @section('title','Admin | addcategory')
 @section('content')
 <div class="container-fluid p-5">
-    <h4 class="fw-bold py-3 mb-4"><span class="text fw-light">Pages / </span> All Product</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text fw-light">Pages / </span> All Gallery</h4>
     <div class="card">
         @if (session()->has('message'))
         <div class="alert alert-success">

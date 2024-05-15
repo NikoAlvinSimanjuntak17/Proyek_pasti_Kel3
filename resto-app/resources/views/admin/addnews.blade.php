@@ -2,7 +2,7 @@
 @section('title','Admin | addcategory')
 @section('content')
 <div class="container p-5">
-    <h4 class="fw-bold py-3 mb-4"><span class="text fw-light">Pages / </span> Add Categori</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text fw-light">Pages / </span> Add News</h4>
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
